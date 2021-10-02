@@ -48,14 +48,8 @@ export class WebSocketService {
     });
 
     this.socket.subscribe({
-      next: (message: unknown) => {
-        console.debug('[WebSocketService] Message received:');
-        console.debug(message);
-      },
-      error: (error: unknown) => {
-        console.error('[WebSocketService] Error received:');
-        console.error(error);
-      },
+      next: (message: unknown) => console.debug('[WebSocketService] Message received:', message),
+      error: (error: unknown) => console.error('[WebSocketService] Error received:', error),
       complete: () => console.warn('[WebSocketService] WebSocket closed.')
     });
   }
