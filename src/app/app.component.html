@@ -1,0 +1,32 @@
+<main fxLayout="column" fxLayoutAlign="start center">
+  <h1>-9807 Debug Client</h1>
+
+  <form
+    [formGroup]="form"
+    fxLayout="column"
+    fxLayoutAlign="start center"
+  >
+    <mat-form-field>
+      <mat-label>WebSocket Server</mat-label>
+      <input matInput type="url" formControlName="address">
+    </mat-form-field>
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <button
+        mat-raised-button
+        [disabled]="form.invalid || (webSocketService.status$ | async) === 'Open'"
+        (click)="connect()"
+      >
+        Connect
+      </button>
+
+      <button
+        mat-raised-button
+        [disabled]="form.invalid || (webSocketService.status$ | async) !== 'Open'"
+        (click)="send()"
+      >
+        Send Message
+      </button>
+    </div>
+  </form>
+</main>
