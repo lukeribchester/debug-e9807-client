@@ -37,7 +37,8 @@ export class AppComponent implements OnInit {
 
   public send(): void {
     this.webSocketService.send({
-      id: uuidv4()
+      event: 'test',
+      data: uuidv4()
     });
   }
 }
